@@ -22,13 +22,13 @@
                  </tr>
                 <br>
                 <tr>
-                  <th><input type="submit" value="Age next birthday"></th>
+                  <th><input type="submit" value="Age next birthday" ></th>
                 </tr>
            
             </table>
            
         </form>
         <p>${message}</p>
-        <a href="url">Arithmetic Calculator</a>
+        <a href="arithmetic">Arithmetic Calculator</a>
     </body>
 </html>

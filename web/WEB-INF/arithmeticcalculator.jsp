@@ -35,7 +35,7 @@
                  </table>
                  
         </form>
-        <p>${message2}</p>
-        <a href="ageCalc">Arithmetic Calculator</a>
+        <p>Result: ${message2}</p>
+        <a href="ageCalc">Age Calculator</a>
     </body>
 </html>

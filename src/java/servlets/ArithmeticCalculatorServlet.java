@@ -39,21 +39,22 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         request.setAttribute("mul", mulParameter );
         request.setAttribute("mod", modParameter );
         
-        if (firstinput == null || secondinput == null){
-            request.setAttribute("message2", "Result is invalid");
+        
+        if (firstinput == null || secondinput == null || firstinput.equals("") ||secondinput.equals("")){
+            request.setAttribute("message2", " is invalid");
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }
         
         else if (addParameter != null){
             int addition = Integer.parseInt(firstinput) + Integer.parseInt(secondinput);
-            request.setAttribute("message2", "Result: " + addition);
+            request.setAttribute("message2",  addition);
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }
         else if (subParameter != null){
             int subtraction = Integer.parseInt(firstinput) - Integer.parseInt(secondinput);
-        request.setAttribute("message2", "Result: " + subtraction);
+        request.setAttribute("message2", + subtraction);
             getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
             return;
         }

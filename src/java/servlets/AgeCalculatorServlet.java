@@ -31,13 +31,23 @@ public class AgeCalculatorServlet extends HttpServlet {
        request.setAttribute("age_input", age);
        
         if (age == null || age.equals("")){
+            //checks if the user input is null or an empty string
             request.setAttribute("message", "You must give your current age");
             // forward the request and response objects to the JSP
             //display the form again
             getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
             return;//
         }
+        else if (!age.matches("-?\\d+(\\.\\d+)?")) {
+            // checks to see if the user input is a string and not a number
+             request.setAttribute("message", "You must enter a number");
+            // forward the request and response objects to the JSP
+            //display the form again
+            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+            return;//
+        }
         else{
+            // receives a number and calculates the new age of the user
             int aged = Integer.parseInt(age);
             aged = aged + 1;
             request.setAttribute("message", "Your age next birthday will be " + aged);
@@ -48,10 +58,5 @@ public class AgeCalculatorServlet extends HttpServlet {
         
     }
        
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+ 
 }
